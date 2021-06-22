@@ -1,5 +1,5 @@
 // Store project Data
-projectData = {};
+projectData = [];
 
 
 //Express setup
@@ -24,13 +24,19 @@ function listening(){
     console.log(`Example app listening on port ${port}!`);
 };
 
-app.get("/all", (res,req) => {
-    response.send(projectData);
+// Get route - Return the project data
+app.get("/all", (req,res) => {
+    res.send(projectData);
 });
+
+// Post route - add incoming data to project data
 
 app.post('/', addWeather);
 
 function addWeather (req, res){
     console.log(req.body)
-    data.push(req.body)
+    projectData.push(req.body)
 };
+
+// Initialize website
+app.use(express.static("website"));
