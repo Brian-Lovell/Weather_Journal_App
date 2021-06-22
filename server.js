@@ -1,25 +1,36 @@
-const http = require('http');
+// Store project Data
+projectData = {};
 
-const hostname = '127.0.0.1';
+
+//Express setup
+const express = require("express");
+const app = express();
 const port = 2076;
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Welcome Vault Dwellers!\n');
+//Dependencies
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+const cors = require("cors");
+const { response } = require("express");
+app.use(cors());
+
+
+// Start server
+const server = app.listen(port, listening);
+
+function listening(){
+    console.log(`Example app listening on port ${port}!`);
+};
+
+app.get("/all", (res,req) => {
+    response.send(projectData);
 });
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.post('/', addWeather);
 
-var express = require('express');
-var app = express();
-
-app.get('/', function (req, res) {
-    res.send('GET request to homepage')
-});
-
-app.post('/', function (req, res) {
-    res.send('Post request to homepage')
-});
+function addWeather (req, res){
+    console.log(req.body)
+    data.push(req.body)
+};
