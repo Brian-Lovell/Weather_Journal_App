@@ -1,5 +1,5 @@
 // Store project Data
-projectData = {};
+const projectData = {};
 
 
 //Express setup
@@ -28,18 +28,16 @@ function listening(){
 // app.use(express.static("website"));
 
 // Get route - Return the project data
-app.get("/", function (req,res) {
-    res.send("Get request for /");
+app.get("/all", function (req,res) {
     res.send(projectData);
 
 });
 
 // Post route - add incoming data to project data
-app.post("/", function (req,res) {
-    res.send("Post request for /");
-    res.send(projectData);
-});
-
 app.post("/weather", function (req,res) {
     projectData.push(req.body);
+
+    console.log("Temperature: ", data.temperature);
+    console.log("date: ", data.date);
+    console.log("User: ", data.user);
 });
