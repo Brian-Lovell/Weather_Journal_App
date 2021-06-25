@@ -1,20 +1,22 @@
-// Store project Data
-const projectData = {};
-
-
-//Express setup
+// Requirements
 const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+// Start Express
 const app = express();
 const port = 2076;
 
-//Dependencies
-const bodyParser = require("body-parser");
+//Parse URL-encoded data with querystring library
 app.use(bodyParser.urlencoded({ extended: false }));
+//  Parse application/json
 app.use(bodyParser.json());
 
-const cors = require("cors");
-const { response } = require("express");
+// Enable All CORS Requests
 app.use(cors());
+
+// Store project Data
+const projectData = [];
 
 
 // Start server
@@ -25,19 +27,26 @@ function listening(){
 };
 
 // Initialize website
-// app.use(express.static("website"));
+app.use(express.static("website"));
+
 
 // Get route - Return the project data
-app.get("/all", function (req,res) {
-    res.send(projectData);
-
-});
+app.get ('/all', function (req, res) {
+    res.send(projectData)
+})
 
 // Post route - add incoming data to project data
-app.post("/weather", function (req,res) {
-    projectData.push(req.body);
+app.post ('/addWeather', addWeather )
 
-    console.log("Temperature: ", data.temperature);
-    console.log("date: ", data.date);
-    console.log("User: ", data.user);
-});
+function addWeather (req, res) {
+    // console.log(req.body)
+
+    newEntry = {
+        date: req.body.date,
+        temp: req.body.temp,
+        content: req.body.content,
+    }
+    projectData.push(newEntry)
+    res.send(projectData)
+    console.log(projectData)
+}

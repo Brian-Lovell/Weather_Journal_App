@@ -6,14 +6,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather Journal App</title>
         <link href="style.css" type="text/css" rel="stylesheet">
+        <script src="/app.js" type="text/javascript" async></script>
         <!-- TODO: Create link to google font -->
         <!-- TODO: Create icon -->
         <!-- <link rel='icon' href="favicon.ico" -->
     </head>
     <body>
         <header>Weather Journal Header</header>
-        <nav>Navigation Section</nav>
-        <main>Weather information area</main>
+        <nav>Navigation Section
+            <input id="zip" placeholder="Enter Zip Code here">
+            <button id="generate">Generate</button>
+        </nav>
+        <main>Weather information area
+            <div class="box-feel">
+                <label for="feelings">How are you feeling today?</label>
+                <textarea class= "myInput" id ="feelings" placeholder="Enter your feelings here" rows="5" cols="25"></textarea>
+            </div>
+            <div id="entryHolder">
+                <div id="date">Date</div>
+                <div id="temp">Temp</div>
+                <div id ="content">Content</div>
+            </div>
+        </main>
         <footer>I am a footer</footer>
     </body>
 </html>
