@@ -8,11 +8,13 @@ document.getElementById('generate').addEventListener('click', performAction);
 function performAction(e){
     let newZipcode = document.getElementById('zip').value;
     let content = document.getElementById('feelings').value;
+    let d = new Date();
+    let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
     console.log(content);
     getWeather(baseURL, newZipcode, apiKey)
     .then(function(data){
         // console.log(data)
-        postData('/addWeather', {date:data.dt, temp:data.main.temp, content});
+        postData('/addWeather', {date:newDate, temp:data.main.temp, content});
         updateUI()
     })
 }
@@ -61,7 +63,7 @@ const updateUI = async () => {
         recentIndex = (allData.length - 1);
         console.log(allData);
     document.getElementById('date').innerHTML = allData[recentIndex].date;
-    document.getElementById('temp').innerHTML = allData[recentIndex].temp;
+    document.getElementById('temp').innerHTML = (Math.round(allData[recentIndex].temp - 272.15))+'&deg;';
     document.getElementById('content').innerHTML = allData[recentIndex].content;
 
     }catch(error){
