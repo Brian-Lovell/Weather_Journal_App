@@ -9,7 +9,7 @@ function performAction(e){
     let newZipcode = document.getElementById('zip').value;
     let content = document.getElementById('feelings').value;
     let d = new Date();
-    let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+    let newDate = (d.getMonth()+1)+'.'+ d.getDate()+'.'+ d.getFullYear();
     console.log(content);
     getWeather(baseURL, newZipcode, apiKey)
     .then(function(data){
