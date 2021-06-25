@@ -7,27 +7,36 @@
         <title>Weather Journal App</title>
         <link href="style.css" type="text/css" rel="stylesheet">
         <script src="/app.js" type="text/javascript" async></script>
-        <!-- TODO: Create link to google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&display=swap" rel="stylesheet">
         <!-- TODO: Create icon -->
         <!-- <link rel='icon' href="favicon.ico" -->
     </head>
     <body>
-        <header>Weather Journal Header</header>
-        <nav>Navigation Section
-            <input id="zip" placeholder="Enter Zip Code here">
-            <button id="generate">Generate</button>
-        </nav>
-        <main>Weather information area
-            <div class="box-feel">
-                <label for="feelings">How are you feeling today?</label>
-                <textarea class= "myInput" id ="feelings" placeholder="Enter your feelings here" rows="5" cols="25"></textarea>
-            </div>
-            <div id="entryHolder">
-                <div id="date">Date</div>
-                <div id="temp">Temp</div>
-                <div id ="content">Content</div>
-            </div>
-        </main>
-        <footer>I am a footer</footer>
+        <div class="container">
+            <header><h1>Weather Journal</h1></header>
+            <nav>
+                <ul>
+                    <li>
+                        <label for="feelings">
+                            <h2>How are you feeling today?</h2>    
+                        </label> 
+                    </li>
+                    <li><textarea class= "myInput" id ="feelings" placeholder="Enter your feelings here" rows="5" cols="25"></textarea></li>
+                    <li><input id="zip" placeholder="Enter Zip Code here"></li>
+                    <li><button id="generate">Submit</button></li>
+                </ul>
+            </nav>
+            <main>
+                <div class="notification"></div>
+                <div id="entryHolder">
+                    <div class="weather" id="date">Date</div>
+                    <div class="weather" id="temp">Temp</div>
+                    <div class="weather" id ="content">Feelings</div>
+                </div>
+            </main>
+            <footer></footer>
+        </div>
     </body>
 </html>

@@ -12,11 +12,10 @@ function performAction(e){
     getWeather(baseURL, newZipcode, apiKey)
     .then(function(data){
         // console.log(data)
-    postData('/addWeather', {date:data.dt, temp:data.main.temp, content})
-
-    updateUI()
-    });
-};
+        postData('/addWeather', {date:data.dt, temp:data.main.temp, content});
+        updateUI()
+    })
+}
 
 const getWeather = async ( baseURL, data, key)=>{
     // console.log(data);
@@ -67,4 +66,4 @@ const updateUI = async () => {
     }catch(error){
         console.log("error", error)
     }
-}
+};
