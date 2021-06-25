@@ -58,10 +58,11 @@ const updateUI = async () => {
     const request = await fetch('/all')
     try{
         const allData = await request.json()
+        recentIndex = (allData.length - 1);
         console.log(allData);
-    document.getElementById('date').innerHTML = allData[0].date;
-    document.getElementById('temp').innerHTML = allData[0].temp;
-    document.getElementById('content').innerHTML = allData[0].content;
+    document.getElementById('date').innerHTML = allData[recentIndex].date;
+    document.getElementById('temp').innerHTML = allData[recentIndex].temp;
+    document.getElementById('content').innerHTML = allData[recentIndex].content;
 
     }catch(error){
         console.log("error", error)
