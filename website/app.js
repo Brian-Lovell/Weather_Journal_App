@@ -1,4 +1,4 @@
-let baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
+const baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
 const apiKey = "&appid=f14302284edc0516459d70333b5c6f2d&units=imperial";
 
 
