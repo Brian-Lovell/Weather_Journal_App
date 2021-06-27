@@ -63,7 +63,7 @@ const updateUI = async () => {
         recentIndex = (allData.length - 1);
         console.log(allData);
     document.getElementById('date').innerHTML = allData[recentIndex].date;
-    document.getElementById('temp').innerHTML = (Math.round(allData[recentIndex].temp - 272.15))+'&deg;';
+    document.getElementById('temp').innerHTML = Math.round(allData[recentIndex].temp)+'&deg;';
     document.getElementById('content').innerHTML = allData[recentIndex].content;
 
     }catch(error){
