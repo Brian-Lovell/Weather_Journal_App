@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Store project Data
-const projectData = [];
+let projectData = {};
 
 
 // Start server
