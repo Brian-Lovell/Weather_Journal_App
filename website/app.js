@@ -60,11 +60,11 @@ const updateUI = async () => {
     const request = await fetch('/all')
     try{
         const allData = await request.json()
-        recentIndex = (allData.length - 1);
+        // recentIndex = (allData.length - 1);
         console.log(allData);
-    document.getElementById('date').innerHTML = allData[recentIndex].date;
-    document.getElementById('temp').innerHTML = Math.round(allData[recentIndex].temp)+'&deg;';
-    document.getElementById('content').innerHTML = allData[recentIndex].content;
+    document.getElementById('date').innerHTML = allData.date;
+    document.getElementById('temp').innerHTML = Math.round(allData.temp)+'&deg;';
+    document.getElementById('content').innerHTML = allData.content;
 
     }catch(error){
         console.log("error", error)
